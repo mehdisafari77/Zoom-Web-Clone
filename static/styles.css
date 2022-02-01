@@ -9,7 +9,20 @@ body {
     font-family: "Roboto", sans-serif;
 }
 
-#video-grid {
+#video-grids {
+    display: flex
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+.video-grid {
+    position: relative;
     display: flex;
     justify-content: center;
     height: 100%;
@@ -17,6 +30,13 @@ body {
     align-items: center;
     flex-wrap: wrap;
     overflow-y: auto;
+    background-color: yellow;
+}
+
+h1 {
+    position: absolute;
+    bottom: 0;
+    left: 40%;
 }
 
 video {
@@ -25,9 +45,7 @@ video {
     object-fit: cover;
     border: 5px solid #000;
     max-width: 600px;
-    border-radius: 30px;
-    border-color: white;
-    margin: 5px;
+    border-radius: 25px;
 }
 
 .mainclone {
