@@ -68,4 +68,4 @@ io.on("connection", (socket) => {
     });
 });
 
-server.listen(process.env.PORT || 3000); // Listen on port 3030.
+server.listen(process.env.PORT || 3000);
