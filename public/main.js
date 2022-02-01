@@ -146,3 +146,38 @@ const VideomuteUnmute = () => {
         myVideoStream.getVideoTracks()[0].enabled = true;
     }
 };
+
+const showchat = () => { // Show chat window or not
+    if (chat.hidden == false) { 
+        chat.hidden = true; // Dont Show
+    } else {
+        chat.hidden = false; // SHow
+    }
+};
+
+const addVideoStream = (videoEl, stream, name) => { 
+    videoEl.srcObject = stream;
+    videoEl.addEventListener("loadedmetadata", () => {
+        videoEl.play();
+    });
+
+    // HTML dom manipulation
+    const h1 = document.createElement("h1");
+    const h1name = document.createTextNode(name);
+    h1.appendChild(h1name);
+    const videoGrid = document.createElement("div");
+    videoGrid.classList.add("video-grid"); // add a class to videoGrid div
+    videoGrid.appendChild(h1); // append the h1 to the div "videoGrid"
+    videoGrids.appendChild(videoGrid);  // append the name to the the div "videoGrid"
+    videoGrid.append(videoEl); // append the video element to the the div "videoGrid"
+    RemoveUnusedDivs(); // Remove all unsed divs
+    let totalUsers = document.getElementsByTagName("video").length; 
+
+     // If more users than 1
+    if (totalUsers > 1) {
+        for (let i = 0; i < totalUsers; i++) {
+            document.getElementsByTagName("video")[i].style.width = 
+                100 / totalUsers + "%";
+        }
+    }
+};
