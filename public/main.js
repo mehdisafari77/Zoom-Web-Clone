@@ -148,26 +148,36 @@ const showchat = () => {
     }
 }
 
-const addVideoStream = (videoEl, stream, name) => { 
-    videoEl.srcObject = stream; 
-    videoEl.addEventListener("loadedmetadata", () => { 
+const addVideoStream = (videoEl, stream) => {
+    videoEl.srcObject = stream;
+    videoEl.addEventListener("loadedmetadata", () => {
         videoEl.play();
     });
-    const h1 = document.createElement("h1");
-    const h1name = document.createTextNode(name);
-    h1.appendChild(h1name); 
-    const videoGrid = document.createElement("div");
-    videoGrid.classList.add("video-grid"); 
-    videoGrid.appendChild(h1); 
-    videoGrids.appendChild(videoGrid);
-    videoGrid.append(videoEl);
-    RemoveUnusedDivs();
-    let totalUsers = document.getElementsByTagName("video").length; 
-
-    if (totalUsers > 1) { // If more users than 1
-        for (let index = 0; index < totalUsers; index++) { // loop through all videos
-            document.getElementsByTagName("video")[index].style.width = 
-                100 / totalUsers + "%"; // 👈👈
-        }
-    }
+    videoGrid.append(videoEl)
 };
+
+//-----------Below is Buggy Code---------------//
+
+// const addVideoStream = (videoEl, stream, name) => { 
+//     videoEl.srcObject = stream; 
+//     videoEl.addEventListener("loadedmetadata", () => { 
+//         videoEl.play();
+//     });
+//     const h1 = document.createElement("h1");
+//     const h1name = document.createTextNode(name);
+//     h1.appendChild(h1name); 
+//     const videoGrid = document.createElement("div");
+//     videoGrid.classList.add("video-grid"); 
+//     videoGrid.appendChild(h1); 
+//     videoGrids.appendChild(videoGrid);
+//     videoGrid.append(videoEl);
+//     RemoveUnusedDivs();
+//     let totalUsers = document.getElementsByTagName("video").length; 
+
+//     if (totalUsers > 1) { // If more users than 1
+//         for (let index = 0; index < totalUsers; index++) { // loop through all videos
+//             document.getElementsByTagName("video")[index].style.width = 
+//                 100 / totalUsers + "%"; // 👈👈
+//         }
+//     }
+// };
