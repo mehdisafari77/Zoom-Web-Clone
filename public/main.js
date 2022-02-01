@@ -113,3 +113,26 @@ const connectToNewUser = (userId, streams, myname) => {
 const cancel = () => {
     $("#getCodeModal").modal("hide");
 };
+
+ // copy our Invitation link when we press the copy button
+const copy = async() => {
+    const roomid = document.getElementById("roomid").innerText;
+    await navigator.clipboard.writeText("http://localhost:3000/join/" + roomid);
+};
+const invitebox = () => {
+    $("#getCodeModal").modal("show");
+};
+
+ // Mute Audio
+const muteUnmute = () => {
+    const enabled = myVideoStream.getAudioTracks()[0].enabled;
+    if (enabled) {
+        myVideoStream.getAudioTracks()[0].enabled = false;
+        document.getElementById("mic").style.color = "red";
+    } else {
+        document.getElementById("mic").style.color = "white";
+        myVideoStream.getAudioTracks()[0].enabled = true;
+    }
+};
+
+
