@@ -80,3 +80,36 @@ socket.on("createMessage", (message) => {
     li.appendChild(document.createTextNode(message));
     ul.appendChild(li);
 });
+
+socket.on("AddName", (username) => { // Tell other user their name
+    OtherUsername = username;
+    console.log(username);
+});
+
+const RemoveUnusedDivs = () => { // This function is used to remove unused divs whenever if it is there
+    //
+    alldivs = videoGrids.getElementsByTagName("div"); // Get all divs in our video area
+    for (var i = 0; i < alldivs.length; i++) { // loop through all the divs
+        e = alldivs[i].getElementsByTagName("video").length; // Check if there is a video elemnt in each of the div
+        if (e == 0) { // If no
+            alldivs[i].remove // remove
+        }
+    }
+};
+
+const connectToNewUser = (userId, streams, myname) => {
+    const call = peer.call(userId, streams); 
+    const video = document.createElement("video"); 
+    call.on("stream", (userVideoStream) => { 
+        addVideoStream(video, userVideoStream, myname);
+    });
+    call.on("close", () => {
+        video.remove();
+        RemoveUnusedDivs();
+    });
+    peers[userId] = call;
+};
+
+const cancel = () => {
+    $("#getCodeModal").modal("hide");
+};
