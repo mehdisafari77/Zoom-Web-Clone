@@ -54,6 +54,11 @@ body {
     margin: 15px
 }
 
+.form a {
+    font-size: 14px;
+    color: rgb(81, 152, 199);
+}
+
 .form button:hover {
     background: #43A047
 }

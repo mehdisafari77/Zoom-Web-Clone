@@ -111,6 +111,7 @@ const cancel = () => {
 const copy = async() => {
     const roomid = document.getElementById('roomid').innerText
     await navigator.clipboard.writeText('http://localhost:3000/' + roomid)
+    console.log(roomid)
 
 }
 const invitebox = () => {
