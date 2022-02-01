@@ -135,4 +135,14 @@ const muteUnmute = () => {
     }
 };
 
-
+// Video Mute
+const VideomuteUnmute = () => {
+    const enabled = myVideoStream.getVideoTracks()[0].enabled;
+    if (enabled) {
+        myVideoStream.getVideoTracks()[0].enabled = false;
+        document.getElementById("video").style.color = "red";
+    } else {
+        document.getElementById("video").style.color = "white";
+        myVideoStream.getVideoTracks()[0].enabled = true;
+    }
+};
