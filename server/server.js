@@ -12,17 +12,18 @@ const path = require("path");
 
 app.set("view engine", "ejs");
 app.use("/public", express.static(path.join(__dirname, "static")));
-app.use("/peerjs", peerServer); // Now we just need to tell our application to server our server at "/peerjs".Now our server is up and running
+app.use("/peerjs", peerServer); 
 
-app.get("/", (req, res) => { // On the '/' route
-    res.sendFile(path.join(__dirname, "static", "index.html")); // Send our Intro page file(index.js)
+app.get("/", (req, res) => { 
+    res.sendFile(path.join(__dirname, "static", "index.html")); 
 });
 
-app.get("/join", (req, res) => { // Our intro page redirects us to /join route with our query strings(We reach here when we host a meeting)
-    res.redirect( // When we reach /join route we redirect the user to a new unique route with is formed using Uuid 
-        url.format({ // The url module provides utilities for URL resolution and parsing.
-            pathname: `/join/${uuidv4()}`, // Here it returns a string which has the route and the query strings.
-            query: req.query, // For Eg : /join/A_unique_Number?Param=Params. So we basically get redirected to our old_Url/join/id?params
+// Our intro page redirects us to /join route 
+app.get("/join", (req, res) => { 
+    res.redirect( 
+        url.format({ 
+            pathname: `/join/${uuidv4()}`, 
+            query: req.query, 
         })
     );
 });
