@@ -1,6 +1,9 @@
 {
   "name": "zoom-web-clone",
   "version": "1.0.0",
+  "engines": {
+    "node": "v16.11.0"
+    },
   "description": "",
   "main": "server.js",
   "scripts": {
