@@ -10,7 +10,7 @@ body {
 }
 
 #video-grids {
-    display: flex
+    display: flex;
 }
 
 a,
@@ -30,22 +30,24 @@ a:active {
     align-items: center;
     flex-wrap: wrap;
     overflow-y: auto;
-    background-color: yellow;
+    background-color: rgba(136, 219, 230, 0.884);
+    border-radius: 55px;
 }
 
 h1 {
     position: absolute;
     bottom: 0;
     left: 40%;
+    color: #fff;
 }
 
 video {
     display: block;
     flex: 1;
     object-fit: cover;
-    border: 5px solid #000;
+    border: 5px solid rgb(110, 168, 235);
     max-width: 600px;
-    border-radius: 25px;
+    border-radius: 30px;
 }
 
 .mainclone {
