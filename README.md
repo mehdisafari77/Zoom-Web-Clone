@@ -5,7 +5,10 @@ A zoom video call clone for the web
 https://zoom-web-clone-mehdi.herokuapp.com/
 
 ## Gif of Website
-![Gif](./static/gif.gif)
+![Gif](./static/gif2.gif)
+
+## Demo Explanation Link
+[Click](https://youtu.be/OVmyu9uNpQE)
 
 ## Features
 - User goes to link and sees intro page
