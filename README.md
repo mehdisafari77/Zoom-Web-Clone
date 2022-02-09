@@ -26,6 +26,6 @@ https://zoom-web-clone-mehdi.herokuapp.com/
 - git clone
 - cd Zoom-Web-Clone
 - npm start
-- Go to LocalHost:3000
+- Go to LocalHost:3030
 
 
